@@ -1,14 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
-
-
-
 public class TopMaliciousReader
 {
     public int IdStudent { get; set; }
     public double CoefMalicious { get; set; }
 }
-
 
 public class DtoBookAtStudent
 {
@@ -37,6 +32,7 @@ public class Controller
                 foreach (var tmpBS in tmpBookAtStudent)
                 {
                     double diff = 0;
+
                     if (tmpBS.RefoundBook != null)
                     {
                         diff = (tmpBS.RefoundBook - tmpBS.TakingBook).TotalDays;
@@ -46,7 +42,6 @@ public class Controller
                 MaliciousReaders.Add(topMaliciousReader);
             }
         }
-
         return MaliciousReaders.Max(topMaliciousReader => topMaliciousReader.CoefMalicious);
     }
 }
